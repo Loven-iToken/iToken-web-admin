@@ -1,0 +1,33 @@
+spring:
+  cloud:
+    config:
+      uri: http://localhost:8888
+      name: iToken-web-admin, iToken-baseconfig, iToken-common-web
+      label: master
+      profile: dev
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 7000
+        readTimeout: 7000
+
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      circuitBreaker:
+        requestVolumeThreshold: 1
+        sleepWindowInMilliseconds: 15000
+        forceOpen: false
+        forceClosed: false
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+ribbon:
+  ConnectTimeout: 4000
+  ReadTimeout: 4000
+service:
+  sso_address: http://localhost:8502

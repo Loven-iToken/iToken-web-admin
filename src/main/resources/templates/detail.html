@@ -1,0 +1,30 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<div class="row" th:object="${user}">
+    <div class="col-xs-6">
+        <dl>
+            <dt>邮箱：</dt>
+            <dd><span th:text="*{loginCode}"></span></dd>
+            <br />
+
+            <dt>姓名：</dt>
+            <dd><span th:text="*{userName}"></span></dd>
+            <br />
+
+            <dt>手机：</dt>
+            <dd><span th:text="*{mobile}"></span></dd>
+            <br />
+        </dl>
+    </div>
+
+    <div class="col-xs-6">
+        <dl>
+            <dt>创建时间：</dt>
+            <dd><span th:text="*{#dates.format(createDate, 'yy-MM-dd HH:mm:ss')}"></span></dd>
+            <br />
+
+            <dt>更新时间：</dt>
+            <dd><span th:text="*{#dates.format(updateDate, 'yy-MM-dd HH:mm:ss')}"></span></dd>
+        </dl>
+    </div>
+</div>
